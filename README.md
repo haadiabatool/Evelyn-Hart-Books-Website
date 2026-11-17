@@ -6,7 +6,7 @@ Users can explore books, search by title or keyword, filter products by category
 
 ## ✨ Features
 
-##🏠 Hero Section
+## 🏠 Hero Section
 
 Attractive landing page with an engaging introduction.
 
@@ -74,7 +74,7 @@ CSS3
 
 JavaScript
 
-🎯 Project Objectives
+## 🎯 Project Objectives
 
 Develop a responsive online bookstore.
 
