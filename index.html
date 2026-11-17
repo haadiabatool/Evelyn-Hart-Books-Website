@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evelyn Hart</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="nav-container">
+
+      <!-- Left: Brand Name -->
+      <a href="index.html" class="nav-brand">
+        Evelyn Hart.
+      </a>
+
+      <!-- Middle: Main Navigation Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">HOME</a></li>
+        <li><a href="#collection">COLLECTION</a></li>
+        <li><a href="#collection">SHOP</a></li>
+        <li><a href="#story">OUR STORY</a></li>
+        <li><a href="#contact">ABOUT US</a></li>
+      </ul>
+
+      <!-- Right: Wishlist & Add to Bag (Ready for JS logic) -->
+      <div class="nav-actions">
+        <!-- Wishlist Button -->
+        <a href="wishlist.html" type="button" class="action-btn" id="wishlistBtn" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+            </path>
+          </svg>
+          <span class="badge-count" id="wishlistCount">0</span>
+        </a>
+
+        <!-- Add to Bag / Cart Button -->
+        <a href="cart.html" class="action-btn" id="cartBtn" aria-label="Shopping Bag">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="badge-count gold" id="cartCount">0</span>
+        </a>
+
+        <!-- Mobile Hamburger Menu Toggle -->
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!--SECTION NO 1: HERO SECTION-->
+  <section class="hero-section" id="home">
+    <div class="hero-container">
+
+      <!-- Left Side: Text & Buttons -->
+      <div class="hero-content">
+        <span class="hero-eyebrow">WELCOME TO THE WORLD OF EVELYN HART</span>
+
+        <h1 class="hero-heading">"Stories That Stay With You."</h1>
+
+        <p class="hero-description">
+          Explore a world of meaningful stories, thoughtful ideas, and inspiring words. Discover books that encourage
+          you to reflect, grow, and see life from a different perspective.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#collection" class="btn-primary-cta">Explore My Books</a>
+          <a href="#our-story" class="btn-secondary-cta">Discover My Story</a>
+        </div>
+      </div>
+
+      <!-- Right Side: Editorial Book & Literary Image -->
+      <div class="hero-image-wrapper">
+        <div class="hero-image-backdrop"></div>
+        <div class="hero-image-card">
+          <img src="assets\beyond-the-noise.jpeg" alt="Evelyn Hart Literary Book Collection">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!--SECTION 02: COLLECTION & SHOP-->
+  <section class="collection-section" id="collection">
+    <div class="collection-container">
+
+      <!-- Section Header -->
+      <div class="section-header-center">
+        <span class="section-eyebrow">EXPLORE THE COLLECTION</span>
+        <h2 class="section-heading">Every Book Has a Story.</h2>
+        <p class="section-description">
+          From personal growth to meaningful life lessons, explore Evelyn Hart's complete collection of ten books. Each
+          book offers a different perspective, a new idea, and a reason to turn the next page.
+        </p>
+      </div>
+
+      <!-- Shop Layout (Sidebar Filters + Grid) -->
+      <div class="shop-layout">
+
+        <!-- Left Sidebar Filters -->
+        <aside class="shop-sidebar">
+
+          <!-- Search Box -->
+          <div class="filter-group">
+            <h4 class="filter-title">Search</h4>
+            <input type="text" id="bookSearchInput" class="search-input" placeholder="Search title, theme...">
+          </div>
+
+          <!-- Category Checkboxes -->
+          <div class="filter-group">
+            <h4 class="filter-title">Categories</h4>
+            <div class="checkbox-filters">
+              <label class="filter-checkbox-label">
+                <input type="checkbox" class="cat-checkbox" value="All" checked> All Categories
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" class="cat-checkbox" value="Personal Growth"> Personal Growth
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" class="cat-checkbox" value="Motivation"> Motivation
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" class="cat-checkbox" value="Inspiration"> Inspiration
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" class="cat-checkbox" value="Mindfulness"> Mindfulness
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" class="cat-checkbox" value="Life Lessons"> Life Lessons
+              </label>
+            </div>
+          </div>
+
+          <!-- Price Range Filter -->
+          <div class="filter-group">
+            <h4 class="filter-title">Max Price: $<span id="priceVal">20.00</span></h4>
+            <input type="range" id="priceRange" min="15" max="20" step="0.5" value="20" class="price-range-slider">
+          </div>
+
+        </aside>
+
+        <!-- Right Main Content -->
+        <div class="shop-main-content">
+          <!-- Dynamic Books Grid -->
+          <div class="books-grid" id="booksGrid">
+            <!-- Cards injected dynamically -->
+          </div>
+
+          <!-- View All Button -->
+          <div id="viewAllWrapper" style="text-align: center; margin-top: 3rem;">
+            <button type="button" id="viewAllBtn" class="btn-primary-cta" style="padding: 0.9rem 2.5rem;">View All
+              Books</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Quick View / Book Details Modal -->
+  <div class="book-modal-overlay" id="bookDetailsModal">
+    <div class="book-modal-box">
+      <button class="modal-close-btn" onclick="closeBookModal()">&times;</button>
+      <div class="modal-book-left">
+        <img id="modalBookImg" src="" alt="Book Cover">
+      </div>
+      <div class="modal-book-right" id="modalBookBody">
+        <!-- Details injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Feedback -->
+  <div class="toast-msg" id="toastMsg"></div>
+
+  <!--SECTION : FEATURED BOOK OF THE YEAR-->
+  <section class="featured-book-section" id="featured-book">
+    <div class="featured-container">
+
+      <!-- Section Header -->
+      <div class="featured-header-center">
+        <span class="section-eyebrow">EDITOR'S PICK</span>
+        <h2 class="section-heading">A Book Worth Your Time.</h2>
+      </div>
+
+      <!-- Full Width Featured Card -->
+      <article class="featured-main-card">
+
+        <!-- Left Side: Large Book Image -->
+        <div class="featured-card-left">
+          <div class="featured-card-cover-frame">
+            <img src="assets/the-quite-hours.jpeg" alt="The Quiet Mind">
+          </div>
+        </div>
+
+        <!-- Right Side: Details & Actions -->
+        <div class="featured-card-right">
+          <span class="featured-category-tag">Mindfulness • Book of the Year</span>
+          <h3 class="featured-card-title">The Quiet Mind</h3>
+          <p class="featured-card-subtitle">Finding peace in a world that never stops.</p>
+          <p class="featured-card-desc">
+            Discover how slowing down and becoming more mindful can change the way you experience everyday life, manage
+            stress, and find clarity in quiet moments.
+          </p>
+
+          <div class="featured-card-price-row">
+            <span
+              style="font-family: var(--font-label); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--secondary-color);">Format:
+              Paperback</span>
+            <span class="featured-price">$18.99</span>
+          </div>
+
+          <div class="featured-card-buttons">
+            <!-- Opens the detailed Quick View Modal overlay card -->
+            <button type="button" class="btn-add-cart" onclick="addFeaturedToCart()">Add to cart</button>
+          </div>
+        </div>
+
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SECTION: THE STORY -->
+  <section class="story-section" id="story">
+    <div class="story-container">
+
+      <div class="story-grid">
+
+        <!-- Left Side: Text & Button -->
+        <div class="story-text-content">
+          <span class="section-eyebrow">BEHIND EVERY PAGE</span>
+          <h2 class="story-heading">Every Story Begins Somewhere.</h2>
+
+          <p class="story-body-text">
+            Before the books, there were notebooks filled with thoughts, unfinished ideas, and stories waiting to be
+            told.
+          </p>
+          <p class="story-body-text">
+            Evelyn's journey began with a simple love for words. Over time, those words became stories about life,
+            growth, dreams, and the moments that shape who we become.
+          </p>
+          <p class="story-body-text" style="margin-bottom: 2rem;">
+            This is more than a collection of books. It is a journey through the thoughts, experiences, and imagination
+            of one writer.
+          </p>
+
+          <div class="story-btn-wrapper">
+            <button type="button" class="btn-primary-cta" onclick="openFullStoryModal()">Read the Full Story</button>
+          </div>
+        </div>
+
+        <!-- Right Side: Old Writing Desk / Author Image -->
+        <div class="story-image-wrapper">
+          <div class="story-image-frame">
+            <!-- Apni image ka path yahan replace kar dein -->
+            <img src="assets\author.jpeg" alt="Evelyn's Writing Desk">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: READER REVIEWS (SOCIAL PROOF) -->
+  <section class="reviews-section" id="reviews">
+    <div class="reviews-container">
+
+      <!-- Section Header -->
+      <div class="reviews-header">
+        <span class="section-eyebrow">WORDS FROM OUR READERS</span>
+        <h2 class="section-heading">What Readers Are Saying.</h2>
+        <p class="reviews-desc">
+          Every reader experiences a story differently. Discover what people have to say about the books and ideas that
+          have inspired them.
+        </p>
+      </div>
+
+      <!-- Review Cards Grid -->
+      <div class="reviews-grid">
+
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "The Quiet Mind reminded me to slow down and appreciate the little things in life. A beautiful and
+              thoughtful read."
+            </p>
+          </div>
+          <div class="review-author">
+            <span class="author-name">Sarah M.</span>
+            <span class="review-book">Review of The Quiet Mind</span>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "Beyond Limits gave me a fresh perspective on confidence and believing in myself."
+            </p>
+          </div>
+          <div class="review-author">
+            <span class="author-name">Daniel R.</span>
+            <span class="review-book">Review of Beyond Limits</span>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "Fragments spoke directly to my heart. Every page felt like a quiet conversation with a wise,
+              understanding friend."
+            </p>
+          </div>
+          <div class="review-author">
+            <span class="author-name">Claire S.</span>
+            <span class="review-book">Review of Fragments</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: BLOG / JOURNAL -->
+  <section class="blog-section" id="journal">
+    <div class="blog-container">
+
+      <!-- Header with Title & Slider Arrows -->
+      <div class="blog-header-row">
+        <div class="blog-header-left">
+          <span class="section-eyebrow">NOTES FROM EVELYN</span>
+          <h2 class="section-heading">Thoughts, Words & Inspiration.</h2>
+          <p class="reviews-desc" style="margin-top: 0.5rem;">
+            A little space for ideas beyond the pages of my books. Explore reflections, writing notes, personal growth
+            tips, and lessons worth remembering.
+          </p>
+        </div>
+
+        <!-- Navigation Arrows in the Middle/Right -->
+        <div class="blog-controls">
+          <button type="button" class="blog-nav-btn" id="blogPrevBtn" aria-label="Previous Slide">
+            &#8592;
+          </button>
+          <button type="button" class="blog-nav-btn" id="blogNextBtn" aria-label="Next Slide">
+            &#8594;
+          </button>
+        </div>
+      </div>
+
+      <!-- Blog Slider Track (5 Cards) -->
+      <div class="blog-slider-wrapper">
+        <div class="blog-track" id="blogTrack">
+
+          <!-- Post 1 -->
+          <article class="blog-card">
+            <img src="assets\habits-of-calmer-mind.png" alt="5 Habits for a Calmer Mind" class="blog-card-img">
+            <div class="blog-card-body">
+              <span class="blog-category-tag">Self-growth</span>
+              <h3 class="blog-card-title">5 Habits for a Calmer Mind</h3>
+              <p class="blog-card-desc">
+                Discover simple daily rituals that help quiet mental chatter and bring profound peace into your routine.
+              </p>
+              <button type="button" class="blog-read-more-btn" onclick="openArticle(1)">
+                Read More &rarr;
+              </button>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="blog-card">
+            <img src="assets\achieve-goal.jpg" alt="How to Achieve Your Goals" class="blog-card-img">
+            <div class="blog-card-body">
+              <span class="blog-category-tag">Motivation</span>
+              <h3 class="blog-card-title">How to Achieve Your Goals</h3>
+              <p class="blog-card-desc">
+                Break down monumental ambitions into tiny, manageable daily actions that compound into success over
+                time.
+              </p>
+              <button type="button" class="blog-read-more-btn" onclick="openArticle(2)">
+                Read More &rarr;
+              </button>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="blog-card">
+            <img src="assets\power-of-gratitude.jpg" alt="The Power of Gratitude" class="blog-card-img">
+            <div class="blog-card-body">
+              <span class="blog-category-tag">Life lessons</span>
+              <h3 class="blog-card-title">The Power of Gratitude</h3>
+              <p class="blog-card-desc">
+                How shifting your perspective toward thankfulness rewires your mindset and transforms ordinary days.
+              </p>
+              <button type="button" class="blog-read-more-btn" onclick="openArticle(3)">
+                Read More &rarr;
+              </button>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article class="blog-card">
+            <img src="assets\being-again.jpg" alt="Learning to Begin Again" class="blog-card-img">
+            <div class="blog-card-body">
+              <span class="blog-category-tag">Inspiration</span>
+              <h3 class="blog-card-title">Learning to Begin Again</h3>
+              <p class="blog-card-desc">
+                Embracing fresh starts without fear, recognizing that every setback is simply a new chapter waiting to
+                unfold.
+              </p>
+              <button type="button" class="blog-read-more-btn" onclick="openArticle(4)">
+                Read More &rarr;
+              </button>
+            </div>
+          </article>
+
+          <!-- Post 5 -->
+          <article class="blog-card">
+            <img src="assets\reading-changes.avif" alt="Why Reading Changes Your Perspective" class="blog-card-img">
+            <div class="blog-card-body">
+              <span class="blog-category-tag">Reading</span>
+              <h3 class="blog-card-title">Why Reading Changes Your Perspective</h3>
+              <p class="blog-card-desc">
+                Immersing yourself in alternative worlds and diverse minds builds deep empathy and broadens your
+                horizon.
+              </p>
+              <button type="button" class="blog-read-more-btn" onclick="openArticle(5)">
+                Read More &rarr;
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+
+      <!-- Header -->
+      <div class="contact-header">
+        <span class="section-eyebrow">LET'S START A CONVERSATION</span>
+        <h2 class="section-heading">Get in Touch.</h2>
+        <p class="contact-desc">
+          Have a question about a book, want to share your thoughts, or simply wish to say hello? Evelyn would love to
+          hear from you.
+        </p>
+      </div>
+
+      <!-- 3 Direct Contact Cards -->
+      <div class="contact-cards-grid">
+
+        <!-- Email Card -->
+        <div class="contact-card">
+          <div class="contact-icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+          </div>
+          <span class="contact-card-label">Email</span>
+          <a href="mailto:hello@evelynhart.example" class="contact-card-value">hello@evelynhart.example</a>
+        </div>
+
+        <!-- Instagram Card -->
+        <div class="contact-card">
+          <div class="contact-icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+          <span class="contact-card-label">Instagram</span>
+          <a href="https://instagram.com" target="_blank" class="contact-card-value">@evelynhart.author</a>
+        </div>
+
+        <!-- Phone Number Card -->
+        <div class="contact-card">
+          <div class="contact-icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+              </path>
+            </svg>
+          </div>
+          <span class="contact-card-label">Phone</span>
+          <a href="tel:+12125550194" class="contact-card-value">+1 (212) 555-0194</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER SECTION (EDITORIAL LAYOUT)-->
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <div class="footer-top-grid">
+
+        <!-- Column 1: Brand & Tagline -->
+        <div>
+          <div class="footer-brand">Evelyn Hart</div>
+          <p class="footer-tagline">Stories That Stay With You.</p>
+          <p class="footer-location">New York, USA</p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#collection">Shop</a></li>
+            <li><a href="#story">Story</a></li>
+            <li><a href="#featured-book">About</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#journal">Journal</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Connect -->
+        <div>
+          <h4 class="footer-col-title">Connect</h4>
+          <ul class="footer-contact-list">
+            <li><a href="mailto:hello@evelynhart.example">hello@evelynhart.example</a></li>
+            <li><a href="https://instagram.com" target="_blank">@evelynhart.author</a></li>
+            <li><a href="tel:+12125550194">+1 (212) 555-0194</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="footer-bottom">
+        <span>Copyright &copy; 2026 Evelyn Hart. All rights reserved.</span>
+        <span>Crafted with quiet intention.</span>
+      </div>
+
+    </div>
+  </footer>
+  <script type="module" src="script.js"></script>
+  <script type="module" src="books-data.js"></script>
+  <script type="module" src="shop.js"></script>
+  <script type="module" src="quick-view.js"></script>
+  <script type="module" src="blog.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+// <!-- GSAP & ScrollTrigger Flight Script -->
+    const booksData = [
+      {
+        id: 1,
+        title: "Beyond The Noise",
+        category: "Personal Growth",
+        year: "2025",
+        pages: "240 pages",
+        price: 18.99,
+        format: "Paperback",
+        subtitle: "Finding peace in a world that never stops.",
+        desc: "A thoughtful guide to slowing down, managing overwhelming thoughts, and discovering the importance of inner peace.",
+        themes: "Mindfulness, peace, self-awareness",
+        img: "assets/beyond-the-noise.jpeg"
+      },
+      {
+        id: 2,
+        title: "Embrace Your Journey",
+        category: "Motivation",
+        year: "2024",
+        pages: "268 pages",
+        price: 19.99,
+        format: "Paperback",
+        subtitle: "Your potential is greater than your fears.",
+        desc: "A story about overcoming self-doubt, facing challenges, and learning to believe in your own abilities.",
+        themes: "Confidence, courage, ambition",
+        img: "assets/embrace-your-journey.jpeg"
+      },
+      {
+        id: 3,
+        title: "Fragments DU'N REVE",
+        category: "Inspiration",
+        year: "2023",
+        pages: "220 pages",
+        price: 17.99,
+        format: "Paperback",
+        subtitle: "Every ending carries the possibility of a new beginning.",
+        desc: "A collection of reflections about hope, resilience, and finding opportunities in difficult moments.",
+        themes: "Hope, optimism, resilience",
+        img: "assets/fragments.jpeg"
+      },
+      {
+        id: 4,
+        title: "Finding Peace",
+        category: "Mindfulness",
+        year: "2022",
+        pages: "196 pages",
+        price: 16.99,
+        format: "Paperback",
+        subtitle: "Sometimes the answers are found in silence.",
+        desc: "A gentle exploration of letting go of unnecessary pressure and creating a more balanced life.",
+        themes: "Mindfulness, acceptance, balance",
+        img: "assets/finding-peace.jpeg"
+      },
+      {
+        id: 5,
+        title: "The Inner Growth",
+        category: "Personal Growth",
+        year: "2021",
+        pages: "252 pages",
+        price: 18.99,
+        format: "Paperback",
+        subtitle: "Small changes. Stronger habits. A better life.",
+        desc: "A practical introduction to personal development, building discipline, and creating positive daily routines.",
+        themes: "Habits, discipline, consistency",
+        img: "assets/the-inner-growth.jpeg"
+      },
+      {
+        id: 6,
+        title: "The Strength Of Softness",
+        category: "Inspiration",
+        year: "2020",
+        pages: "284 pages",
+        price: 19.99,
+        format: "Paperback",
+        subtitle: "A journey of dreams, setbacks, and rediscovery.",
+        desc: "A fictional story about someone who loses direction in life but gradually discovers the courage to follow their dreams.",
+        themes: "Dreams, determination, identity",
+        img: "assets/the-strength-of-softness.jpeg"
+      },
+      {
+        id: 7,
+        title: "The Art Of Calm",
+        category: "Life Lessons",
+        year: "2019",
+        pages: "210 pages",
+        price: 16.99,
+        format: "Paperback",
+        subtitle: "Little acts of kindness can leave the biggest marks.",
+        desc: "An exploration of empathy, compassion, and how small actions can make a difference in people's lives.",
+        themes: "Kindness, empathy, relationships",
+        img: "assets/the-art-of-calm.jpeg"
+      },
+      {
+        id: 8,
+        title: "The Quite Hours",
+        category: "Mindfulness",
+        year: "2018",
+        pages: "232 pages",
+        price: 17.99,
+        format: "Paperback",
+        subtitle: "Create space for what truly matters.",
+        desc: "A reflective book about balancing personal goals, relationships, responsibilities, and the need for rest.",
+        themes: "Balance, wellbeing, priorities",
+        img: "assets/the-quite-hours.jpeg"
+      },
+      {
+        id: 9,
+        title: "The Path Of New Begining",
+        category: "Personal Growth",
+        year: "2017",
+        pages: "204 pages",
+        price: 15.99,
+        format: "Paperback",
+        subtitle: "You don't need the perfect moment to start.",
+        desc: "A practical and inspiring reflection on taking the first step, overcoming procrastination, and accepting imperfection.",
+        themes: "Action, courage, new beginnings",
+        img: "assets/the-path-of-new-begining.jpeg"
+      },
+      {
+        id: 10,
+        title: "Letters to My Future Self",
+        category: "Life Lessons",
+        year: "2016",
+        pages: "188 pages",
+        price: 16.99,
+        format: "Paperback",
+        subtitle: "A conversation with the person you are becoming.",
+        desc: "A collection of reflective letters about growth, mistakes, dreams, memories, and the lessons we learn along the way.",
+        themes: "Reflection, growth, purpose",
+        img: "assets/letter-of-my-self.jpeg"
+      }
+    ];
+
+    export default booksData;

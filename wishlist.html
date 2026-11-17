@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Wishlist | Evelyn Hart</title>
+
+  <style>
+    :root {
+      /* Color Palette */
+      --primary-color: #1B3A2F;      /* Deep Green */
+      --secondary-color: #A77D58;    /* Warm Brown */
+      --accent-color: #D4AF7C;       /* Gold */
+      --bg-primary: #FAF7F0;         /* Cream */
+      --bg-secondary: #E8DDC6;       /* Beige */
+      --text-primary: #2B2B2B;       /* Charcoal */
+      --text-light: #FAF7F0;         /* Cream for dark backgrounds */
+
+      /* Typography */
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-label: 'Montserrat', sans-serif;
+
+      /* Transitions & Borders */
+      --transition-smooth: all 0.3s ease;
+      --border-subtle: rgba(27, 58, 47, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Simple Top Navbar */
+    .wishlist-nav {
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1.25rem 2.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .back-link {
+      font-family: var(--font-label);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--secondary-color);
+    }
+
+    .bag-badge-link {
+      font-family: var(--font-label);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    /* Page Header */
+    .wishlist-header {
+      background-color: var(--bg-secondary);
+      padding: 4.5rem 2.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .eyebrow {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--secondary-color);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--primary-color);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-subtitle {
+      font-size: 0.98rem;
+      max-width: 580px;
+      margin: 0 auto;
+      opacity: 0.85;
+    }
+
+    /* Main Content Container */
+    .wishlist-main {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 4.5rem 2rem;
+      flex-grow: 1;
+    }
+
+    .wishlist-meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .saved-count-text {
+      font-family: var(--font-label);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary-color);
+    }
+
+    .clear-all-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--secondary-color);
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* Wishlist Items List (Editorial Horizontal Cards) */
+    .wishlist-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .wishlist-item-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(27, 58, 47, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .wishlist-item-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 45px rgba(27, 58, 47, 0.09);
+      border-color: rgba(212, 175, 124, 0.6);
+    }
+
+    .item-img-box {
+      background-color: #F3EFE6;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid var(--border-subtle);
+    }
+
+    .item-img-box img {
+      width: 100%;
+      max-width: 145px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 10px 25px rgba(27, 58, 47, 0.18);
+    }
+
+    .item-details-box {
+      padding: 2rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .item-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .item-category {
+      font-family: var(--font-label);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--secondary-color);
+    }
+
+    .item-price {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .item-title {
+      font-family: var(--font-heading);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.25rem;
+    }
+
+    .item-subtitle {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 0.98rem;
+      color: var(--secondary-color);
+      margin-bottom: 0.85rem;
+    }
+
+    .item-desc {
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      opacity: 0.88;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .item-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-family: var(--font-label);
+      font-size: 0.73rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .item-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .btn-move-bag {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      border: 1px solid var(--primary-color);
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-move-bag:hover {
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
+    }
+
+    .btn-remove {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background-color: transparent;
+      color: var(--text-primary);
+      border: 1px solid rgba(27, 58, 47, 0.25);
+      padding: 0.8rem 1.35rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-remove:hover {
+      border-color: #9e2a2b;
+      color: #9e2a2b;
+      background-color: rgba(158, 42, 43, 0.04);
+    }
+
+    /* Empty State */
+    .empty-wishlist-box {
+      text-align: center;
+      padding: 5rem 2rem;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      display: none;
+    }
+
+    .empty-wishlist-box h3 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      margin-bottom: 0.75rem;
+    }
+
+    .empty-wishlist-box p {
+      max-width: 450px;
+      margin: 0 auto 2rem;
+      opacity: 0.8;
+    }
+
+    /* Toast Notification */
+    .toast-msg {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      border: 1px solid var(--accent-color);
+      padding: 0.95rem 1.6rem;
+      border-radius: 8px;
+      font-family: var(--font-label);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      box-shadow: 0 12px 35px rgba(27, 58, 47, 0.25);
+      z-index: 10000;
+      transform: translateX(120%);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .toast-msg.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    /* Footer */
+    .simple-footer {
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.82rem;
+      opacity: 0.95;
+    }
+
+    @media (max-width: 768px) {
+      .wishlist-item-card {
+        grid-template-columns: 1fr;
+      }
+      .item-img-box {
+        border-right: none;
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 2rem;
+      }
+      .item-details-box {
+        padding: 1.5rem;
+      }
+      .wishlist-nav {
+        padding: 1rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="wishlist-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand-logo">Evelyn Hart</a>
+      <div class="nav-actions">
+        <a href="index.html#collection" class="back-link">&larr; Back to Books</a>
+        <a href="cart.html" class="bag-badge-link">Bag (<span id="navCartCount">0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Header Banner -->
+  <section class="wishlist-header">
+    <span class="eyebrow">CURATED FOR LATER</span>
+    <h1 class="page-title">Your Saved Wishlist</h1>
+    <p class="page-subtitle">
+      Stories that caught your heart. Review full details below or move your favorites directly into your reading bag.
+    </p>
+  </section>
+
+  <!-- Wishlist Content -->
+  <main class="wishlist-main">
+    
+    <div class="wishlist-meta-bar" id="metaBar">
+      <span class="saved-count-text" id="savedCountLabel">0 Saved Books</span>
+      <button type="button" class="clear-all-btn" onclick="clearWishlist()">Clear All</button>
+    </div>
+
+    <!-- Dynamic Wishlist Container -->
+    <div class="wishlist-list" id="wishlistContainer"></div>
+
+    <!-- Empty State -->
+    <div class="empty-wishlist-box" id="emptyState">
+      <h3>Your wishlist is currently quiet.</h3>
+      <p>Explore the collection and tap the heart icon on any book you wish to save for later.</p>
+      <a href="index.html#collection" class="btn-move-bag" style="text-decoration: none; display: inline-block;">Explore Collection</a>
+    </div>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div class="toast-msg" id="toastMsg"></div>
+
+  <!-- Footer -->
+  <footer class="simple-footer">
+    Copyright &copy; 2026 Evelyn Hart. All rights reserved.
+  </footer>
+
+  <!-- Import booksData as ES module to fix undefined error -->
+  <script type="module" src="wishlist.js"></script>
+</body>
+</html>
